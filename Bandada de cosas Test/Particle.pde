@@ -6,7 +6,9 @@ class Particle
 
   float weight;
   float size;
+   // KB de acercamiento a la bandada
   float KB;
+  // KD de acercamiento a la meta
   float KD;
   color color_p;
 
@@ -28,6 +30,7 @@ class Particle
     PVector strenght;
     PVector accel;
     PVector dest;
+    //Flock es bandada
     PVector flock;
     
     strenght = new PVector(0.0, 0.0, 0.0);
@@ -36,7 +39,7 @@ class Particle
     flock = new PVector(0.0, 0.0, 0.0);
 
     dest = UnitaryVector(pos, dest);
-    dest = UnitaryVector(pos, FlockCenter());
+    flock = UnitaryVector(pos, FlockCenter());
     
     strenght.x = KD * dest.x + KB * flock.x;
     strenght.y = KD * dest.y + KB * flock.y;
