@@ -1,0 +1,18 @@
+// MI PRIMERA LUT
+// LE METEREMOS UN FILTRO A UN TOMATE DE MIERDA
+
+PImage tomateNazi;
+
+
+void setup()
+{
+  tomateNazi = 
+
+}
+
+
+
+void draw()
+{
+  
+}
