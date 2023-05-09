@@ -35,27 +35,39 @@ void draw()
             float red = red(colorPixel);
             float green = green(colorPixel);
             float blue = blue(colorPixel);
-            //color newPixelColor = color(0,green,0);
-            //color newPixelColor = color(0,255 - green,0);
+            //color newPixelColor = color(0,green,0); Filtro verde
+            //color newPixelColor = color(0,255 - green,0); Filtro verde oscuro
             //newPixelColor = color((255 - 0.299 * red) , (255 - 0.587 * green) , (255 - 0.114 * blue)); Esto da un azul raro
-
+            
+            //Color Blanco y negro
+            // if (averageColor >= 255/2) {
+            //     averageColor = 255;
+            // }else {
+            //     averageColor = 0;
+            // }
+            // newPixelColor = color(averageColor,averageColor,averageColor);
 
             float averageColor;
             color newPixelColor;
 
-            //LUT 1 (Hacemos bien los grises)
+            //Pintar en gris (Hacemos bien los grises)
             averageColor = 0.299 * red + 0.587 * green + 0.114 * blue;
             newPixelColor = color(averageColor,averageColor,averageColor);
             tomateNazi.set(i, j, newPixelColor);
 
-            //LUT 2 (Blanco y negro)
-            averageColor = 0.299 * red + 0.587 * green + 0.114 * blue;
-            if (averageColor >= 255/2) {
-                averageColor = 255;
-            }else {
-                averageColor = 0;
+            //LUT 2
+            
+            if(j < tomaticoFresco.height/3)
+            {
+                newPixelColor = color(red,0,0);
             }
-            newPixelColor = color(averageColor,averageColor,averageColor);
+            else if(j < tomaticoFresco.height * 2 / 3)
+            {
+                newPixelColor = color(0,green,0);
+            }else{
+
+                newPixelColor = color(0,0,blue);
+            }
             tomateComunista.set(i, j, newPixelColor);
 
             
